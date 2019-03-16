@@ -1,0 +1,18 @@
+static void insert1(int shi,int fen,int miao,int nian,int yue,int ri,int jing,int wei) throws UnsupportedEncodingException ,  SQLException  
+{  
+ 
+ String sql = "INSERT INTO `gpsinfo` (`shi`, `fen`, `miao`, `nian`, `yue`, `ri`, `jing`, `wei`) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+ PreparedStatement preparedStatement = connection.prepareStatement( sql ) ;  
+ 
+	preparedStatement.setInt(1, shi); 
+     preparedStatement.setInt(2, fen); 
+     preparedStatement.setInt(3, miao); 
+     preparedStatement.setInt(4, nian); 
+     preparedStatement.setInt(5, yue); 
+     preparedStatement.setInt(6, ri); 
+     preparedStatement.setInt(7, jing); 
+     preparedStatement.setInt(8, wei); 
+     
+     preparedStatement.executeUpdate() ;// 执行  
+   
+}  

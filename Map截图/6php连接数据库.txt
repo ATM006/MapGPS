@@ -1,0 +1,26 @@
+<?php
+//主机名
+$db_host = 'localhost';
+//用户名
+$db_user = 'root';
+//密码
+$db_password = '11111111';
+//数据库名
+$db_name = 'gps';
+//端口
+$db_port = '3306';
+//连接数据库
+$conn = mysqli_connect($db_host,$db_user,$db_password,$db_name) or die('连接数据库失败！');
+/* //选择数据库 */
+/* //mysqli_select_db($conn, $db_name) or die('选择数据库失败！'); */
+$sql = "SELECT * FROM gpsinfo";
+/* //查询数据库 */
+$result = mysqli_query($conn, $sql);
+$row = $result->fetch_assoc(); // 从结果集中取得一行作为关联数组
+/* echo $row["latitude"]; */
+/* /1* free result set *1/ */
+$result->free();
+
+/* /1* close connection *1/ */
+ $mysqli->close();
+?>

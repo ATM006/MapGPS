@@ -1,0 +1,31 @@
+public void gps_parse(byte str[]) throws UnsupportedEncodingException, SQLException
+{
+		
+		int tmp=0;
+		
+	    if(str[0]=='$'&&str[1]=='G'&&str[2]=='P'&&str[3]=='R'&&str[4]=='M'&&str[5]=='C')
+	    {
+	        //"GPRMC"
+	    	info.setHour((str[7]-'0')*10+(str[8]-'0'));
+	    	info.setMinute((str[9]-'0')*10+(str[10]-'0'));
+	    	info.setSecond((str[11]-'0')*10+(str[12]-'0'));
+	    	tmp = GetComma(9,str);
+	    	info.setDay((str[tmp+0]-'0')*10+(str[tmp+1]-'0'));
+	    	info.setMonth((str[tmp+2]-'0')*10+(str[tmp+3]-'0'));
+	    	info.setYear((str[tmp+4]-'0')*10+(str[tmp+5]-'0')+2000);
+	    	
+	    	tmp = GetComma(5,str);
+	    	info.setJing((str[tmp+0]-'0')*100+(str[tmp+1]-'0')*10+(str[tmp+2]-'0'));
+	    	tmp = GetComma(6,str);
+	    	info.setJ((char)str[tmp]);
+	    	
+	    	tmp = GetComma(3,str);
+	    	info.setWei((str[tmp+0]-'0')*10+(str[tmp+1]-'0'));
+	    	tmp = GetComma(4,str);
+	    	info.setW( (char)str[tmp]);
+	    	
+	    }
+
+}
+
+		
